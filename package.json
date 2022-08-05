@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint --ext .tsx --ext .ts src/",
-    "lint-fix": "eslint ./src/**/*.tsx --fix",
+    "lint-fix": "eslint --ext .tsx --ext .ts src/ --fix",
     "format": "prettier --check ./src",
     "format-fix": "prettier --write ./src"
   },
@@ -30,8 +30,23 @@
     "eslint": "^8.21.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "typescript": "~4.3.5"
   },
-  "private": true
+  "private": true,
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/ --fix"
+    ],
+    "./src/**": [
+      "prettier --write ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }
