@@ -1,8 +1,10 @@
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 import { StatusBar } from 'expo-status-bar'
 
 import { useSelector } from 'react-redux'
+
+import Text from '../components/atoms/Text'
 
 const Home = () => {
 	const { isError } = useSelector((state: { isError: boolean }) => state)
