@@ -8,12 +8,17 @@ import DrawerNavigator from './navigation/DrawerNavigator'
 import { Provider } from 'react-redux'
 import store from './store/store'
 
+import { TailwindProvider } from 'tailwindcss-react-native'
+import 'tailwindcss-react-native/types.d'
+
 const App = () => {
 	return (
 		<Provider store={store}>
-			<NavigationContainer>
-				<DrawerNavigator />
-			</NavigationContainer>
+			<TailwindProvider>
+				<NavigationContainer>
+					<DrawerNavigator />
+				</NavigationContainer>
+			</TailwindProvider>
 		</Provider>
 	)
 }
